@@ -233,11 +233,6 @@ class MSTeams {
           type: 'Action.OpenUrl',
           title: 'Repository',
           url: repository.html_url
-        },
-        {
-          type: 'Action.OpenUrl',
-          title: 'Compare',
-          url: compare
         }
       ]
     };
@@ -261,7 +256,7 @@ class MSTeams {
             ...mentionedIds
           ],
           '$schema': 'http://adaptivecards.io/schemas/adaptive-card.json',
-          version: '1.5',
+          version: '1.4',
           msteams: {
             entities: entities
           }
@@ -280,7 +275,7 @@ class MSTeams {
     const client = new IncomingWebhook(url);
     const response = await client.send(payload);
 
-    if (!response.text) {
+    if (response.text != '') {
       throw new Error('Failed to send notification to Microsoft Teams.\n' + 'Response:\n' + JSON.stringify(response, null, 2));
     }
   }
