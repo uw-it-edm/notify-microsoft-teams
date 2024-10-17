@@ -126,6 +126,10 @@ const emailsToMsTeamsEntities = (emails) => {
   });
 };
 
+const getWorkflowRunUrl = () => {
+  return `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+}
+
 const statusSummary = (job) => {
   const {
     activityTitle, activitySubtitle, activityImage, color
@@ -213,7 +217,7 @@ class MSTeams {
       type: 'TextBlock',
       size: 'Medium',
       weight: 'Bolder',
-      text: title !== '' ? title : `${sender.login} ${eventName} initialised workflow"${workflow}"`,
+      text: title !== '' ? title : `${sender.login} ${eventName} initialized workflow "${workflow}"`,
       style: 'heading',
       wrap: true
     };
@@ -236,7 +240,7 @@ class MSTeams {
         {
           type: 'Action.OpenUrl',
           title: 'Workflow Run',
-          url: process.env.GITHUB_RUN
+          url: getWorkflowRunUrl()
         }
       ]
     };
