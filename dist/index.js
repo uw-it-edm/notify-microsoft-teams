@@ -1362,7 +1362,6 @@ const {
       html_url: placeholder,
       name: placeholder
     },
-    compare,
     sender = {
       login: placeholder,
       url: placeholder
@@ -1586,6 +1585,11 @@ class MSTeams {
           type: 'Action.OpenUrl',
           title: 'Repository',
           url: repository.html_url
+        },
+        {
+          type: 'Action.OpenUrl',
+          title: 'Workflow Run',
+          url: process.env.GITHUB_RUN
         }
       ]
     };
