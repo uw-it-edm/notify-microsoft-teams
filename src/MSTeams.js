@@ -49,6 +49,12 @@ const statuses = [{
   activitySubtitle: head_commit.timestamp,
   activityImage: 'https://raw.githubusercontent.com/Skitionek/notify-microsoft-teams/master/icons/skipped.png'
 }, {
+  id: 'info',
+  icon: '?',
+  activityTitle: 'Information Only',
+  activitySubtitle: head_commit.timestamp,
+  activityImage: 'https://raw.githubusercontent.com/Skitionek/notify-microsoft-teams/master/icons/unknown.png'
+}, {
   id: 'unknown',
   icon: '?',
   activityTitle: 'No job context has been provided',
